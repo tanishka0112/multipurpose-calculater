@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+  color: #2d3748;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: #4a5568;
+  color: white;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.1);
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.toggle-switch {
+  width: 40px;
+  height: 20px;
+  background: #cbd5e0;
+  border-radius: 20px;
+  position: relative;
+}
+
+.toggle-button {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s;
+}
+
+.dark-mode .toggle-button {
+  left: 22px;
+}
+
+.tabs {
+  display: flex;
+  background: #f7fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tab {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.tab:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.tab.active {
+  background: #4a5568;
+  color: white;
+  border-bottom: 3px solid #4299e1;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.calculator {
+  display: none;
+  padding: 30px;
+}
+
+.calculator.active {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.display {
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+  text-align: right;
+  padding: 0 15px;
+  margin-bottom: 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.buttons button {
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #e2e8f0;
+  height: 60px;
+  transition: all 0.2s;
+}
+
+.buttons button:hover {
+  transform: translateY(-2px);
+}
+
+.operator {
+  background: #68d391 !important;
+  color: white;
+}
+
+.equals {
+  background: #4299e1 !important;
+  color: white;
+  grid-column: span 2;
+}
+
+.clear {
+  background: #e53e3e !important;
+  color: white;
+}
+
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  background: #4a5568;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #2d3748;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  min-height: 60px;
+  border: 1px solid #e2e8f0;
+}
+
+.underweight { background: #fefcbf; border-left: 4px solid #ecc94b; }
+.normal { background: #c6f6d5; border-left: 4px solid #48bb78; }
+.overweight { background: #fed7d7; border-left: 4px solid #fc8181; }
+.obese { background: #feb2b2; border-left: 4px solid #e53e3e; }
+
+.history {
+  background: #f7fafc;
+  padding: 20px;
+  margin: 30px 30px 30px 0;
+  border-radius: 10px;
+}
+
+.history h3 {
+  margin-bottom: 15px;
+  color: #4299e1;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+#history-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.history-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 8px;
+  font-size: 14px;
+  border-left: 4px solid #4299e1;
+}
+
+.dark-mode {
+  background: #1a202c;
+  color: #e2e8f0;
+}
+
+.dark-mode .container {
+  background: #2d3748;
+}
+
+.dark-mode .tabs {
+  background: #2d3748;
+}
+
+.dark-mode .history {
+  background: #2d3748;
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
